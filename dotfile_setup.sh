@@ -5,7 +5,7 @@ git clone --bare git://github.com/anjoweichbrodt/dotfiles.git $HOME/.dotfiles
 echo "alias dotconf='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'" >> $HOME/.bashrc
 
 function dotconf {
-        /usr/bin/git --git-dir=$HOME/.dotconf/ --work-tree=$HOME $@
+        /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $@
 }
 
 mkdir -p .dotfiles-backup

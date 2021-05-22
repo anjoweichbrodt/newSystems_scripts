@@ -14,7 +14,7 @@ echo root:password | chpasswd
 
 pacman -S grub wayland qt5-wayland glfw-wayland pipewire efibootmgr networkmanager flatpak dialog wpa_supplicant reflector dosfstools base-devel linux-headers avahi xdg-user-dirs xdg-utils gvfs gvfs-smb nfs-utils inetutils dnsutils bluez bluez-utils cups openssh rsync reflector acpi acpi_call tlp dnsmasq ipset firewalld sof-firmware nss-mdns acpid
 
-grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
+grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg
 
 systemctl enable NetworkManager

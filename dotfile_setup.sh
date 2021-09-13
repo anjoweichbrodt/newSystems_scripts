@@ -3,6 +3,7 @@
 git clone --bare git://github.com/anjoweichbrodt/dotfiles.git $HOME/.dotfiles
 
 echo "alias dotconf='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'" >> $HOME/.bashrc
+echo "alias dotconf='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'" >> $HOME/.config/fish/config.fish
 
 function dotconf {
         /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $@

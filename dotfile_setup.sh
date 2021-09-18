@@ -22,3 +22,7 @@ fi;
 
 dotconf checkout
 dotconf config status.showUntrackedFiles no
+
+dotconf remote add origin git@github.com:anjoweichbrodt/dotfiles.git
+dotconf pull
+

@@ -31,6 +31,13 @@ chsh -s `which fish`
 chsh -s `which fish` anjo
 paru -S nautilus-open-any-terminal
 gsettings set com.github.stunkymonkey.nautilus-open-any-terminal terminal kitty
+gsettings set org.gnome.desktop.background picture-uri "/usr/share/backgrounds/gnome/VNC.png"
+gsettings set org.gnome.desktop.default-applications.terminal exec kitty
+# gsettings set org.gnome.desktop.default-applications.terminal exec-arg -e 
+gnome-extensions enable pop-shell@system76.com
+gnome-extensions enable workspace-indicator@gnome-shell-extensions.gcampax.github.com
+gnome-extensions enable native-window-placement@gnome-shell-extensions.gcampax.github.com
+gnome-extensions enable unite@hardpixel.eu
 
 
 echo "install sound"
@@ -51,6 +58,23 @@ paru -S tllocalmgr-git
 tllocalmgr install lastpage
 tllocalmgr install siunitx
 tllocalmgr install titlesec
+tllocalmgr install pdfx
+tllocalmgr install xmpincl
+tllocalmgr install titling 
+tllocalmgr install appendix 
+tllocalmgr install csquotes
+tllocalmgr install glossaries 
+tllocalmgr install firststuc 
+tllocalmgr install xfor
+tllocalmgr install datatool 
+tllocalmgr install substr 
+tllocalmgr install biblatex 
+tllocalmgr install logreq
+tllocalmgr install lipsum 
+tllocalmgr install logreq
+tllocalmgr install glossaries-german
+tllocalmgr install wrapfig 
+tllocalmgr install xymtex
 texhash
 
 echo "install editor"
@@ -59,14 +83,16 @@ paru -S neovim-coc # or coc through nodejs
 # install nvim-plug
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-
+# check!!!
+vim -c 'CocInstall coc-vimtex'
 
 echo "install security tools"
 sudo pacman -S keepassxc
 
 
 echo "install work tools"
-sudo pacman -S freecad qpdf libreoffice krita geeqie inkscape rawtherapee qgis vlc wireshark
+sudo pacman -S freecad qpdf libreoffice krita geeqie inkscape rawtherapee qgis vlc wireshark perl-image-exiftool
+sudo ln /usr/bin/vendor_perl/exiftool /usr/bin/exiftool #needed for now
 
 echo "install fonts&appearances"
 sudo pacman -S gnome-tweak-tool ttf-inconsolata breeze-gtkt 
@@ -97,6 +123,16 @@ sudo pacman -S networkmanager
 sudo pacman -S networkmanager-vpnc # for ETH
 sudo pacman -S nm-connection-editor # options for connect with VPN
 
+echo "set up btrfs snapshots"
+sudo pacman -S snapper
+sudo snapper -c home create-config /home
+sudo snapper -c root create-config /
+sudo systemctl enable snapper-timeline.timer
+sudo systemctl enable snapper-cleanup.timer
+sudo pacman -S snap-pac
+paru -S snap-pac-grub
+
+paru -S cockpit cockpit-pcp cockpit-podman cockpit-machines packagekit
 
 # echo "install syncthing" # file synching between different devices
 # sudo pacman -S syncthing

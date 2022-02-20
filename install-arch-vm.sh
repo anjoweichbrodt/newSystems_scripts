@@ -12,7 +12,7 @@ echo "::1       localhost" >> /etc/hosts
 echo "127.0.1.1 arch.localdomain arch" >> /etc/hosts
 echo root:password | chpasswd
 
-pacman -S grub networkmanager network-manager-applet dialog wpa_supplicant mtools dosfstools reflector base-devel linux-headers avahi xdg-user-dirs xdg-utils gvfs gvfs-smb nfs-utils inetutils dnsutils bluez bluez-utils cups hplip alsa-utils pulseaudio bash-completion openssh rsync reflector acpi acpi_call qemu-guest-agent edk2-ovmf bridge-utils dnsmasq vde2 openbsd-netcat ipset firewalld sof-firmware nss-mdns acpid os-prober ntfs-3g font-terminus
+pacman -S grub networkmanager network-manager-applet dialog wpa_supplicant mtools dosfstools reflector base-devel linux-headers avahi xdg-user-dirs xdg-utils gvfs gvfs-smb nfs-utils inetutils dnsutils bluez bluez-utils cups hplip alsa-utils pulseaudio bash-completion openssh rsync reflector acpi acpi_call qemu-guest-agent edk2-ovmf bridge-utils dnsmasq vde2 openbsd-netcat ipset firewalld sof-firmware nss-mdns acpid os-prober ntfs-3g terminus-font
 
 grub-install --target=i386-pc /dev/vda
 grub-mkconfig -o /boot/grub/grub.cfg

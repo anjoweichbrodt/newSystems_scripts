@@ -14,9 +14,7 @@ echo root:password | chpasswd
 
 pacman -S --noconfirm grub networkmanager network-manager-applet dialog wpa_supplicant mtools dosfstools reflector base-devel linux-headers avahi xdg-user-dirs xdg-utils gvfs gvfs-smb nfs-utils inetutils dnsutils bluez bluez-utils cups hplip alsa-utils pulseaudio bash-completion openssh rsync reflector acpi acpi_call qemu-guest-agent edk2-ovmf bridge-utils dnsmasq vde2 openbsd-netcat iptables-nft ipset firewalld flatpak sof-firmware nss-mdns acpid os-prober ntfs-3g inconsolata-font
 
-pacman -S --noconfirm nvidia nvidia-utils nvidia-settings xorg sddm
-
-grub-install --target=i386-pc /dev/sdX # replace sdx with your disk name, not the partition
+grub-install --target=i386-pc /dev/vda1
 grub-mkconfig -o /boot/grub/grub.cfg
 
 systemctl enable NetworkManager
@@ -29,7 +27,7 @@ systemctl enable fstrim.timer
 systemctl enable firewalld
 systemctl enable acpid
 systemctl enable qemu-guest-agent
-systemctl enable sddm
+
 
 useradd -m anjo
 echo anjo:password | chpasswd

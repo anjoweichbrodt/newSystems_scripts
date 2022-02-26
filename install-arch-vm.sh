@@ -33,6 +33,7 @@ useradd -m anjo
 echo anjo:password | chpasswd
 
 echo "anjo ALL=(ALL) ALL" >> /etc/sudoers.d/anjo
+echo "SystemMaxUse=100M" >> /etc/systemd/journald.conf
 
 
 printf "\e[1;32mDone! Type exit, umount -a and reboot.\e[0m"

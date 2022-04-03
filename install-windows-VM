@@ -1,1 +1,5 @@
 
+https://virtio-fs.gitlab.io/howto-windows.html
+### simply sc didn't suffice had to put sc.ext
+### activated service after executing command
+sc.exe create VirtioFsSvc binpath="C:\Program Files\...\virtiofs.exe" start=auto depend="WinFsp.Launcher/VirtioFsDrv" DisplayName="Virtio FS Service"

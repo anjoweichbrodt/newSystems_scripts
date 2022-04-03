@@ -1,5 +1,7 @@
 
 https://virtio-fs.gitlab.io/howto-windows.html
+1. install Installing WinFsp
+2. Update druuvers of "new devices" with virtiofs PCI device driver
 ### simply sc didn't suffice had to put sc.ext
 ### activated service after executing command
 sc.exe create VirtioFsSvc binpath="C:\Program Files\...\virtiofs.exe" start=auto depend="WinFsp.Launcher/VirtioFsDrv" DisplayName="Virtio FS Service"

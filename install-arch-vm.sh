@@ -19,7 +19,9 @@ xdg-utils gvfs gvfs-smb nfs-utils inetutils dnsutils bluez bluez-utils cups \
 hplip alsa-utils pulseaudio bash-completion openssh rsync reflector acpi acpi_call \
 qemu-guest-agent edk2-ovmf bridge-utils dnsmasq vde2 openbsd-netcat ipset firewalld \
 sof-firmware nss-mdns acpid os-prober ntfs-3g terminus-font \
-cargo git
+git
+cargo \ # paru dependency
+glu # for metashape
 
 git clone https://aur.archlinux.org/paru.git
 cd paru
@@ -51,4 +53,7 @@ echo "SystemMaxUse=100M" >> /etc/systemd/journald.conf
 
 
 printf "\e[1;32mDone! Type exit, umount -a and reboot.\e[0m"
+
+### mount shared directory
+# sudo mount -t virtiofs /mount/tag /mnt
 

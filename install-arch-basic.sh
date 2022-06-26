@@ -12,7 +12,7 @@ echo "::1       localhost" >> /etc/hosts
 echo "127.0.1.1 arch.localdomain arch" >> /etc/hosts
 echo root:password | chpasswd
 
-pacman -S grub os-prober base-devel linux-headers sof-firmware acpi acpi_call acpid networkmanager avahi wpa_supplicant firewalld ipset openssh iwd openbsd-netcat inetutils dnsutils reflector mtools dosfstools gvfs gvfs-smb nfs-utils ntfs-3g git neovim cargo fish rsync htop man
+pacman -S grub efibootmgr base-devel linux-headers sof-firmware acpi acpi_call acpid networkmanager avahi wpa_supplicant firewalld ipset openssh iwd openbsd-netcat inetutils dnsutils reflector mtools dosfstools gvfs gvfs-smb nfs-utils ntfs-3g git neovim cargo fish rsync htop man
 
 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg
@@ -31,6 +31,7 @@ echo anjo:password | chpasswd
 echo "anjo ALL=(ALL) ALL" >> /etc/sudoers.d/anjo
 echo "SystemMaxUse=100M" >> /etc/systemd/journald.conf
 
-chsh -s "which fish"
+chsh -s /usr/bin/fish
+chsh -s /usr/bin/fish anjo
 
 printf "\e[1;32mDone! Type exit, umount -a and reboot.\e[0m"

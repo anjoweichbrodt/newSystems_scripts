@@ -19,17 +19,7 @@ openssh nmtui openbsd-netcat inetutils dnsutils reflector \
 mtools dosfstools gvfs gvfs-smb nfs-utils ntfs-3g \
 git cargo fish rsync htop man \
 
-# install paru
-git clone https://aur.archlinux.org/paru.git
-cd paru
-makepkg
-pacman -U paru*.zst
-cd ..
-rm -rf paru
-
-paru -S informant
-
-grub-install --target=i386-pc /dev/vda
+grub-install --target=i386-pc /dev/nvme0n1p1
 grub-mkconfig -o /boot/grub/grub.cfg
 
 systemctl enable NetworkManager

@@ -12,7 +12,7 @@ echo "::1       localhost" >> /etc/hosts
 echo "127.0.1.1 arch.localdomain arch" >> /etc/hosts
 echo root:password | chpasswd
 
-pacman -S \
+pacman -S --noconfirm --needed \
 grub base-devel linux-headers sof-firmware acpi acpi_call acpid \
 networkmanager avahi wpa_supplicant firewalld ipset \
 openssh nmtui openbsd-netcat inetutils dnsutils reflector \

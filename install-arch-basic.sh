@@ -12,12 +12,7 @@ echo "::1       localhost" >> /etc/hosts
 echo "127.0.1.1 arch.localdomain arch" >> /etc/hosts
 echo root:password | chpasswd
 
-pacman -S --noconfirm --needed \
-grub base-devel linux-headers sof-firmware acpi acpi_call acpid \
-networkmanager avahi wpa_supplicant firewalld ipset \
-openssh nmtui openbsd-netcat inetutils dnsutils reflector \
-mtools dosfstools gvfs gvfs-smb nfs-utils ntfs-3g \
-git cargo fish rsync htop man \
+pacman -S grub base-devel linux-headers sof-firmware acpi acpi_call acpid networkmanager avahi wpa_supplicant firewalld ipset openssh nmtui openbsd-netcat inetutils dnsutils reflector mtools dosfstools gvfs gvfs-smb nfs-utils ntfs-3g git neovim cargo fish rsync htop man
 
 grub-install --target=i386-pc /dev/nvme0n1p1
 grub-mkconfig -o /boot/grub/grub.cfg

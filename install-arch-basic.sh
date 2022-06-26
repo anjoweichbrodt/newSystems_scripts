@@ -13,12 +13,11 @@ echo "127.0.1.1 arch.localdomain arch" >> /etc/hosts
 echo root:password | chpasswd
 
 pacman -S \
-grub base-devel linux-headers sof-firmware acpi acpi_call acpid  \
-networkmanager avahi wpa_supplicant nmtui \
-openssh openbsd-netcat ipset firewalld inetutils dnsutils \
-reflector \
+grub base-devel linux-headers sof-firmware acpi acpi_call acpid \
+networkmanager avahi wpa_supplicant firewalld ipset \
+openssh nmtui openbsd-netcat inetutils dnsutils reflector \
 mtools dosfstools gvfs gvfs-smb nfs-utils ntfs-3g \
-git cargo fish rsync htop man terminus-font\
+git cargo fish rsync htop man \
 
 # install paru
 git clone https://aur.archlinux.org/paru.git
@@ -34,8 +33,6 @@ grub-install --target=i386-pc /dev/vda
 grub-mkconfig -o /boot/grub/grub.cfg
 
 systemctl enable NetworkManager
-systemctl enable bluetooth
-systemctl enable cups.service
 systemctl enable sshd
 systemctl enable avahi-daemon
 systemctl enable reflector.timer

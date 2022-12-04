@@ -12,7 +12,7 @@ echo "::1       localhost" >> /etc/hosts
 echo "127.0.1.1 arch.localdomain arch" >> /etc/hosts
 echo root:password | chpasswd
 
-pacman -S grub efibootmgr base-devel linux-headers sof-firmware acpi acpi_call acpid networkmanager avahi firewalld ipset openssh iwd openbsd-netcat inetutils dnsutils reflector mtools dosfstools gvfs gvfs-smb nfs-utils ntfs-3g git fish htop man
+pacman -S grub efibootmgr base-devel linux-headers sof-firmware acpi acpi_call acpid networkmanager avahi firewalld ipset openssh openbsd-netcat inetutils dnsutils reflector dosfstools git fish htop man
 
 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg
